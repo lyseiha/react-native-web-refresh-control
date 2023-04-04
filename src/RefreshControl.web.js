@@ -18,6 +18,7 @@ RefreshControl.propTypes = {
   titleColor: PropTypes.any,
   style: PropTypes.any,
   children: PropTypes.any,
+  loadingChild: PropTypes.any
 }
 export default function RefreshControl({
   refreshing,
@@ -31,6 +32,7 @@ export default function RefreshControl({
   titleColor,
   onRefresh,
   enabled,
+  loadingChild
 }) {
   const onRefreshRef = useRef(onRefresh)
   useEffect(() => {
@@ -155,11 +157,14 @@ export default function RefreshControl({
       <Animated.View style={indicatorTransformStyle}>
         {refreshing ? (
           <>
-            <ActivityIndicator
-              color={refreshIndicatorColor || undefined}
-              size={size || undefined}
-              style={{ marginVertical: 10 }}
-            />
+            {loadingChild ? loadingChild
+              :
+              <ActivityIndicator
+                color={refreshIndicatorColor || undefined}
+                size={size || undefined}
+                style={{ marginVertical: 10 }}
+              />
+            }
             {title && <Text style={{ color: titleColor, textAlign: 'center', marginTop: 5 }}>{title}</Text>}
           </>
         ) : (
