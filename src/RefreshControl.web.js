@@ -143,7 +143,7 @@ export default function RefreshControl({
 
   // This is messing with react-native-web's internal implementation
   // Will probably break if anything changes on their end
-  const adbAnimatedContentContainer = useMemo(
+  const AnimatedContentContainer = useMemo(
     () => withAnimated(childProps => <children.props.children.type {...childProps} />),
     []
   )
@@ -177,7 +177,7 @@ export default function RefreshControl({
   )
 
   return (
-    <View ref={containerRef} style={containerStyle} >
+    <View ref={containerRef} style={containerStyle} {...panResponder.current.panHandlers}>
       {newChildren}
     </View>
   )
