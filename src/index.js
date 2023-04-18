@@ -16,7 +16,7 @@ export function patchFlatListProps(options = {}) {
 function setCustomFlatListWeb(options) {
   FlatList.defaultProps = {
     ...FlatList.defaultProps,
-    //eslint-disable-next-line react/display-name
+    
     renderScrollComponent: props => (
       <ScrollView
         {...props}

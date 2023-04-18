@@ -38,6 +38,7 @@ export default function RefreshControl({
   useEffect(() => {
     onRefreshRef.current = onRefresh
   }, [onRefresh])
+  
   const enabledRef = useRef(enabled)
   useEffect(() => {
     enabledRef.current = enabled
@@ -142,7 +143,7 @@ export default function RefreshControl({
 
   // This is messing with react-native-web's internal implementation
   // Will probably break if anything changes on their end
-  const AnimatedContentContainer = useMemo(
+  const adbAnimatedContentContainer = useMemo(
     () => withAnimated(childProps => <children.props.children.type {...childProps} />),
     []
   )
@@ -176,7 +177,7 @@ export default function RefreshControl({
   )
 
   return (
-    <View ref={containerRef} style={containerStyle} {...panResponder.current.panHandlers}>
+    <View ref={containerRef} style={containerStyle} >
       {newChildren}
     </View>
   )
