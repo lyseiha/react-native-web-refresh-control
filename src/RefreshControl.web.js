@@ -169,6 +169,7 @@ export default function RefreshControl({
             {title && <Text style={{ color: titleColor, textAlign: 'center', marginTop: 5 }}>{title}</Text>}
           </>
         ) : (
+          
           <Animated.Image source={{ uri: arrowIcon }} style={pullDownIconStyle} />
         )}
       </Animated.View>
